@@ -109,4 +109,11 @@ function http.post (uri, headers, body)
    return http.request ('post', uri, headers, body)
 end
 
+---
+-- Alias to http.request ('post', ...).
+--
+function http.put (uri, headers, body)
+   return http.request ('put', uri, headers, body)
+end
+
 return http
