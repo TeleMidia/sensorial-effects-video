@@ -15,8 +15,8 @@
         "name": "sensorial-galileo.xdk"
       },
       "sensorial-galileo.xdke": {
-        "previousModTime": 1467081742525,
-        "modified": 1467081742525,
+        "previousModTime": 1467134611255,
+        "modified": 1467134611255,
         "seen": true,
         "name": "sensorial-galileo.xdke"
       },
@@ -27,8 +27,8 @@
         "name": "index.html"
       },
       "main.js": {
-        "previousModTime": 1467080901777,
-        "modified": 1467080901777,
+        "previousModTime": 1467134647963,
+        "modified": 1467134647963,
         "seen": true,
         "name": "main.js"
       },
@@ -45,14 +45,14 @@
         "name": "xdk/project-info.json"
       },
       "client/app.js": {
-        "previousModTime": 1467080901777,
-        "modified": 1467080901777,
+        "previousModTime": 1467127394735,
+        "modified": 1467127394735,
         "seen": true,
         "name": "client/app.js"
       },
       "views/index.ejs": {
-        "previousModTime": 1467081789993,
-        "modified": 1467081789993,
+        "previousModTime": 1467127375139,
+        "modified": 1467127375139,
         "seen": true,
         "name": "views/index.ejs"
       },
@@ -76,8 +76,8 @@
       }
     },
     "boardFileStatus": {
-      "views/index.ejs": {
-        "previousModTime": 1467081826656
+      "main.js": {
+        "previousModTime": 1467134653705
       }
     }
   },

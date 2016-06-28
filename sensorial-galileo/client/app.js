@@ -74,7 +74,32 @@ angular.module('galileoWebApp').controller('webController', function ($scope, $l
     
     // --> smell
     //
-    $scope.toggleSmell= function () {
-        api('PUT','/api/smell', function(err, response){});
+//    $scope.toggleSmell= function () {
+//        api('PUT','/api/smell', function(err, response){});
+//    };
+        $scope.airStatus;
+    function readSmell() {
+        api('GET','/api/smell', function(err, response){
+            if(!err) {
+                if(response.data.message) {
+                    $scope.smellStatus = 'on';   
+                } else {
+                    $scope.smellStatus = 'off';
+                }
+            }
+                
+        });
+    };
+    readSmell();
+    $scope.toggleSmell = function () {
+        api('PUT','/api/smell', function(err, response){
+            if(!err) {
+                if(response.data.message) {
+                    $scope.smellStatus = 'on';   
+                } else {
+                    $scope.smellStatus = 'off';
+                }
+            }   
+        });
     };
 });
