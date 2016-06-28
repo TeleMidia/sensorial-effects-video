@@ -1,0 +1,21 @@
+{
+  "name": "sensorial-galileo",
+  "version": "0.0.1",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "engines": {
+    "node": ">=0.10.3"
+  },
+  "dependencies": {
+    "mraa":"0.9.0",
+    "ejs": "^2.4.x",
+    "express": "^4.13.4",
+    "body-parser": "^1.15.0",
+    "path":"*"
+  },
+  "devDependencies": {
+  }
+}

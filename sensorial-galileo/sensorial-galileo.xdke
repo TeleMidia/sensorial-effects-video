@@ -1,0 +1,87 @@
+{
+  "project": {
+    "projectSettingsVersion": "3.0.0",
+    "initialAutoPluginCount": 0,
+    "currentBuildConfiguration": "Android",
+    "projectFiles": {},
+    "projectDirectories": {}
+  },
+  "iot-tab": {
+    "fileStatus": {
+      "sensorial-galileo.xdk": {
+        "previousModTime": 1467081090689,
+        "modified": 1467081090689,
+        "seen": true,
+        "name": "sensorial-galileo.xdk"
+      },
+      "sensorial-galileo.xdke": {
+        "previousModTime": 1467081742525,
+        "modified": 1467081742525,
+        "seen": true,
+        "name": "sensorial-galileo.xdke"
+      },
+      "index.html": {
+        "previousModTime": 1459951056000,
+        "modified": 1459951056000,
+        "seen": true,
+        "name": "index.html"
+      },
+      "main.js": {
+        "previousModTime": 1467080901777,
+        "modified": 1467080901777,
+        "seen": true,
+        "name": "main.js"
+      },
+      "package.json": {
+        "previousModTime": 1467081090689,
+        "modified": 1467081090689,
+        "seen": true,
+        "name": "package.json"
+      },
+      "xdk/project-info.json": {
+        "previousModTime": 1467080901777,
+        "modified": 1467080901777,
+        "seen": true,
+        "name": "xdk/project-info.json"
+      },
+      "client/app.js": {
+        "previousModTime": 1467080901777,
+        "modified": 1467080901777,
+        "seen": true,
+        "name": "client/app.js"
+      },
+      "views/index.ejs": {
+        "previousModTime": 1467081789993,
+        "modified": 1467081789993,
+        "seen": true,
+        "name": "views/index.ejs"
+      },
+      "sensorial-galileo_2.0.0.xdk_bak": {
+        "previousModTime": 1466618456000,
+        "modified": 1466618456000,
+        "seen": true,
+        "name": "sensorial-galileo_2.0.0.xdk_bak"
+      },
+      "sensorial-galileo_2.0.0.xdke_bak": {
+        "previousModTime": 1466618456000,
+        "modified": 1466618456000,
+        "seen": true,
+        "name": "sensorial-galileo_2.0.0.xdke_bak"
+      },
+      "xdk-publish-meta-data.json": {
+        "previousModTime": 1467080901777,
+        "modified": 1467080901777,
+        "seen": true,
+        "name": "xdk-publish-meta-data.json"
+      }
+    },
+    "boardFileStatus": {
+      "views/index.ejs": {
+        "previousModTime": 1467081826656
+      }
+    }
+  },
+  "editorTab": {
+    "currentEditorMode": 0
+  }
+}
