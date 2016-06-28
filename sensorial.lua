@@ -11,11 +11,8 @@ local event = event
 local http = assert (require 'http')
 _ENV = nil
 
-local uri_light = 'http://139.82.95.37:8080/api/light'
-
+local api_uri = 'http://139.82.95.37:8080/api/'
 local FT_COLOR = 'yellow'
-canvas:attrColor (1,1,1)
-canvas:clear ()
 
 local function actuator_request( uri )
       -- fetch URI.
@@ -28,11 +25,33 @@ local function actuator_request( uri )
       end
 
      -- print response.
-     local text = ''..body
-     local family, size, style = canvas:attrFont ()
+     canvas:attrColor (1,1,1)
+     canvas:clear ()
      canvas:attrColor (FT_COLOR)
-     canvas:drawText (0, 0, text)
+     canvas:drawText (0, 0, body)
      canvas:flush ()
 end
 
-http.execute (actuator_request, uri_light)
+-- event.register (
+--    function ()
+--        print ('---------------------->ncl,attribution,start,light_toogle')
+--        http.execute (actuator_request, api_uri..'light')
+--    end,
+--    {class='ncl', type='presentation', action='start'}
+-- )
+
+
+-- attribution callbacks
+event.register (
+  function (evt)
+    print ('---------------------->ncl,attribution,start'.. evt.name)
+    if evt.name == 'light_toogle' then
+      http.execute (actuator_request, api_uri..'light')
+    elseif evt.name == 'air_toggle' then
+      http.execute (actuator_request, api_uri..'air')
+    elseif evt.name == 'smell_toggle' then
+      http.execute (actuator_request, api_uri..'smell')
+    end
+  end,
+  {class='ncl', type='attribution', action='start'}
+)
