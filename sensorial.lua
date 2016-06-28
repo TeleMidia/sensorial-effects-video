@@ -13,6 +13,9 @@ _ENV = nil
 
 local api_uri = 'http://139.82.95.37:8080/api/'
 local FT_COLOR = 'yellow'
+canvas:attrColor (1,1,1)
+canvas:clear ()
+canvas:attrColor (FT_COLOR)
 
 local function actuator_request( uri )
       -- fetch URI.
@@ -20,16 +23,12 @@ local function actuator_request( uri )
       local body = ''
       local status, code, headers, body = http.put (uri, headers, body)
       if status == false then
-         print (('error: %s'):format (code))
-         os.exit (1)
+         canvas:drawText (0, 0, 'error:' ..code)
+         canvas:flush ()
+      else
+         canvas:drawText (0, 0, body)
+         canvas:flush ()
       end
-
-     -- print response.
-     canvas:attrColor (1,1,1)
-     canvas:clear ()
-     canvas:attrColor (FT_COLOR)
-     canvas:drawText (0, 0, body)
-     canvas:flush ()
 end
 
 -- event.register (

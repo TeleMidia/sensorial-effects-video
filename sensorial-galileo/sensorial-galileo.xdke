@@ -15,8 +15,8 @@
         "name": "sensorial-galileo.xdk"
       },
       "sensorial-galileo.xdke": {
-        "previousModTime": 1467134611255,
-        "modified": 1467134611255,
+        "previousModTime": 1467134653719,
+        "modified": 1467134653719,
         "seen": true,
         "name": "sensorial-galileo.xdke"
       },
@@ -75,11 +75,7 @@
         "name": "xdk-publish-meta-data.json"
       }
     },
-    "boardFileStatus": {
-      "main.js": {
-        "previousModTime": 1467134653705
-      }
-    }
+    "boardFileStatus": {}
   },
   "editorTab": {
     "currentEditorMode": 0
