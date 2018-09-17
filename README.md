@@ -11,8 +11,7 @@ The atuators service was development using Intel XDK and Intel Galileo with
 three atuators: air flor; smell spray; and a lamp.
 
 The configuration process are described in the a
-[instructable website](http://www.instructables.com/id/\
-Sensorial-Galileo-for-Video-based-Applications-Usi/)
+[instructable website](https://www.instructables.com/id/Sensorial-Galileo-for-Video-based-Applications-Usi)
 
 **The project page is <https://github.com/alanlivio/ncl-app-sensorial-video>**
 
@@ -48,7 +47,7 @@ note = {00000}
 
 ## preview video
 
-<https://www.youtube.com/edit?o=U&video_id=ovPMPS3tnR8>
+<https://www.youtube.com/watch?v=ovPMPS3tnR8>
 
 ## media credits
 
