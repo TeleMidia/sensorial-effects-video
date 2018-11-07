@@ -1,4 +1,17 @@
 import fcntl, struct, array, time
+import evdev
+from evdev import ecodes, InputDevice, ff
+
+for name in evdev.list_devices():
+    dev = InputDevice(name)
+    print("===========")
+    print(name)
+    print(dev.capabilities())
+    print(ecodes.EV_FF)
+    if ecodes.EV_FF in dev.capabilities():
+        print (dev.path + " is EV_FF capable")
+        break
+print("===========")
 
 EVIOCRMFF = 0x40044581
 EVIOCSFF = 0x40304580
@@ -6,14 +19,6 @@ LOG_CLASS_ON = False
 TIME_DELTA = 250
 TIME_DELTA = 1000
 
-for name in evdev.list_devices():
-    dev = InputDevice(name)
-    print (dev)
-    print (dev.capabilities(verbose=True))
-    if ecodes.EV_FF in dev.capabilities():
-        print (InputDevice(name).path + " is EV_FF capable")
-        print (InputDevice(name).path)
-        break
 
 class Vibrate:
 
@@ -58,9 +63,8 @@ class Vibrate:
         else:
             fcntl.ioctl(self.ff_joy, EVIOCRMFF, id)
 
-f = Vibrate(InputDevice(name).path)
 # f = Vibrate("/dev/input/event20")
-# f = Vibrate("/dev/input/event2")
+f = Vibrate(dev.path)
 
 p = f.new_effect(1.0, 1.0, TIME_DELTA )
 f.play_efect((p))
