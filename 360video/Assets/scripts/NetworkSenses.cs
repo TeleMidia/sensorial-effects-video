@@ -43,7 +43,9 @@ static class Consts
 
     public const string playStopURL = "http://192.168.1.100:8080/api/playstop";
 
-    public const string fileName = "/CSVclicks.txt";
+    public const string rumble = "http://192.168.1.104:8080"; //the server waiting a post to rumble
+
+    //public const string fileName = "/CSVclicks.txt";
 }
 
 public class NetworkSenses : MonoBehaviour {
@@ -53,7 +55,7 @@ public class NetworkSenses : MonoBehaviour {
     private int vid; //index of currently playing video component 
     private List<List<double>> pilhaTempos;
     public VideoControl transformScript;
-    private string filePath;
+    //private string filePath;
     private int flowormotor;
 
     Renderer sphereRenderer;
@@ -99,7 +101,7 @@ public class NetworkSenses : MonoBehaviour {
         videos[3].loopPointReached += ChangeVid;
         //video.clip
 
-        filePath = Application.persistentDataPath + Consts.fileName;
+        //filePath = Application.persistentDataPath + Consts.fileName;
 
         //videos[vid].Play();
         sphereRenderer = GetComponent<Renderer>();
@@ -246,6 +248,7 @@ public class NetworkSenses : MonoBehaviour {
                         if (vid == 2)
                         {
                             Handheld.Vibrate();
+                            StartCoroutine(UploadSense(Consts.rumble));
                         }
                         else//(vid == 3)
                         {
