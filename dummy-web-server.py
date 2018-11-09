@@ -17,6 +17,8 @@ Send a POST request::
 """
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import SocketServer
+from subprocess import call
+
 
 class S(BaseHTTPRequestHandler):
     def _set_headers(self):
@@ -30,15 +32,16 @@ class S(BaseHTTPRequestHandler):
 
     def do_HEAD(self):
         self._set_headers()
-        
+
     def do_POST(self):
         # Doesn't do anything with posted data
         content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
         post_data = self.rfile.read(content_length) # <--- Gets the data itself
         self._set_headers()
         self.wfile.write("<html><body><h1>POST!</h1><pre>" + post_data + "</pre></body></html>")
-        execfile('evdev-rumble.py')
-        
+        # execfile('evdev-rumble.py')
+        call(["python", "evdev-rumble.py"])
+
 def run(server_class=HTTPServer, handler_class=S, port=8080):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
