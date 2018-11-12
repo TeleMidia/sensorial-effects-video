@@ -48,7 +48,8 @@ static class Consts
     //public const string fileName = "/CSVclicks.txt";
 }
 
-public class NetworkSenses : MonoBehaviour {
+public class NetworkSenses : MonoBehaviour
+{
 
     //private bool toggledSmell = false;
     private VideoPlayer[] videos; //Taken from this gameObject components, each with a defined videoclip
@@ -62,7 +63,7 @@ public class NetworkSenses : MonoBehaviour {
     Shader flippedsphereshader;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         pilhaTempos = new List<List<double>>
         {
@@ -115,6 +116,24 @@ public class NetworkSenses : MonoBehaviour {
         byte[] myData = System.Text.Encoding.UTF8.GetBytes("This is some test data");
         Debug.Log("Uploading sense!");
         UnityWebRequest www = UnityWebRequest.Put(senseURL, myData);
+        //UnityWebRequest www = UnityWebRequest.Post(senseURL, "");
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError || www.isHttpError)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            Debug.Log("Upload complete!");
+        }
+    }
+
+    IEnumerator UploadSensePost(string senseURL)
+    {
+        Debug.Log("Uploading sense!");
+        //UnityWebRequest www = UnityWebRequest.Put(senseURL, myData);
+        UnityWebRequest www = UnityWebRequest.Post(senseURL, "");
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
@@ -135,6 +154,9 @@ public class NetworkSenses : MonoBehaviour {
         if (www.isNetworkError || www.isHttpError)
         {
             Debug.Log(www.error);
+            flowormotor = 0;
+            System.Threading.Thread.Sleep(2000);
+            StartCoroutine(StartVideo());
         }
         else
         {
@@ -147,7 +169,7 @@ public class NetworkSenses : MonoBehaviour {
                 videos[vid].Play();
                 //File.AppendAllText(filePath, System.Environment.NewLine + "init," + System.DateTime.Now.ToString() + "," + "video" + vid);
                 Debug.Log("Play Video");
-                if (vid == 1)//when started with 0 : if (vid == 0) 
+                if (vid == 3)//when started with 0 : if (vid == 0) 
                 {
                     StartCoroutine(VerifyServo());
                     StartCoroutine(VerifySceneRestart());
@@ -205,13 +227,22 @@ public class NetworkSenses : MonoBehaviour {
         {
             Debug.Log("changing vid");
             videos[vid].Stop();
-    
+
             sphereRenderer.material.shader = Shader.Find("Standard");
             vid = vid - 1;
 
+            if (vid == 2)//shark in video has to be at the front
+            {
+                transform.Rotate(0, 0, 0);
+            }
+            else
+            {
+                transform.Rotate(0, -90, 0); //center of video aligned to camera
+            }
+
             StartCoroutine(Waiter());
         }
-        else 
+        else
         {
             this.gameObject.SetActive(false);
             //sphereRenderer.material.shader = Shader.Find("Standard");
@@ -219,7 +250,8 @@ public class NetworkSenses : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (pilhaTempos[vid].Count > 0)
         {
             if (videos[vid].time > pilhaTempos[vid][0])
@@ -248,7 +280,7 @@ public class NetworkSenses : MonoBehaviour {
                         if (vid == 2)
                         {
                             Handheld.Vibrate();
-                            StartCoroutine(UploadSense(Consts.rumble));
+                            StartCoroutine(UploadSensePost(Consts.rumble));
                         }
                         else//(vid == 3)
                         {
@@ -266,6 +298,6 @@ public class NetworkSenses : MonoBehaviour {
             //File.AppendAllText(filePath, ","+videos[vid].time);
             //StartCoroutine(transformScript.Turnitoff());
         }
-        
+
     }
 }
