@@ -28,12 +28,13 @@ static class Consts
     public const double airSmallBack = 62;
     public const double airStop = 90;
 
-    public const double shark1 = 30;
+    public const double shark1 = 29;
     public const double shark2 = 30.5;
     public const double shark3 = 31;
     public const double shark4 = 31.5;
 
-    public const double surf1 = 10;
+    public const double surf1 = 7;
+    public const double surf2 = 10;
 
     public const string airWebURL = "http://192.168.1.100:8080/api/air";
 
@@ -48,8 +49,7 @@ static class Consts
     //public const string fileName = "/CSVclicks.txt";
 }
 
-public class NetworkSenses : MonoBehaviour
-{
+public class NetworkSenses : MonoBehaviour {
 
     //private bool toggledSmell = false;
     private VideoPlayer[] videos; //Taken from this gameObject components, each with a defined videoclip
@@ -63,7 +63,7 @@ public class NetworkSenses : MonoBehaviour
     Shader flippedsphereshader;
 
     // Use this for initialization
-    void Start()
+    void Start ()
     {
         pilhaTempos = new List<List<double>>
         {
@@ -93,6 +93,7 @@ public class NetworkSenses : MonoBehaviour
         pilhaTempos[2].Add(Consts.shark4);
 
         pilhaTempos[3].Add(Consts.surf1);
+        pilhaTempos[3].Add(Consts.surf2);
 
         videos = this.GetComponents<VideoPlayer>();
         vid = 3;
@@ -227,22 +228,22 @@ public class NetworkSenses : MonoBehaviour
         {
             Debug.Log("changing vid");
             videos[vid].Stop();
-
+    
             sphereRenderer.material.shader = Shader.Find("Standard");
             vid = vid - 1;
 
             if (vid == 2)//shark in video has to be at the front
             {
-                transform.Rotate(0, 0, 0);
+                transform.eulerAngles = new Vector3(0, 0, 0);
             }
             else
             {
-                transform.Rotate(0, -90, 0); //center of video aligned to camera
+                transform.eulerAngles = new Vector3(0, -90, 0); //center of video aligned to camera
             }
 
             StartCoroutine(Waiter());
         }
-        else
+        else 
         {
             this.gameObject.SetActive(false);
             //sphereRenderer.material.shader = Shader.Find("Standard");
@@ -250,8 +251,7 @@ public class NetworkSenses : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update () {
         if (pilhaTempos[vid].Count > 0)
         {
             if (videos[vid].time > pilhaTempos[vid][0])
@@ -279,7 +279,7 @@ public class NetworkSenses : MonoBehaviour
                     {
                         if (vid == 2)
                         {
-                            Handheld.Vibrate();
+                            //Handheld.Vibrate();
                             StartCoroutine(UploadSensePost(Consts.rumble));
                         }
                         else//(vid == 3)
@@ -298,6 +298,6 @@ public class NetworkSenses : MonoBehaviour
             //File.AppendAllText(filePath, ","+videos[vid].time);
             //StartCoroutine(transformScript.Turnitoff());
         }
-
+        
     }
 }
