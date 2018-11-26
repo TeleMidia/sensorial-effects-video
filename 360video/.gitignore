@@ -1,9 +1,12 @@
+Assets/*.mp4
+# Assets/*.mp4.meta
+[Pp]ackages
 
 # Created by https://www.gitignore.io/api/unity
 # Edit at https://www.gitignore.io/?templates=unity
 
 ### Unity ###
-# [Ll]ibrary/
+[Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
