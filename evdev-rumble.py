@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+"""
+Very simple rumble P4 controller in python.
+"""
+
 import fcntl, struct, array, time
 import evdev
 from evdev import ecodes, InputDevice, ff
