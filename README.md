@@ -13,7 +13,7 @@ three atuators: air flor; smell spray; and a lamp.
 The configuration process are described in the a
 [instructable website](https://www.instructables.com/id/Sensorial-Galileo-for-Video-based-Applications-Usi)
 
-**The project page is <https://github.com/alanlivio/ncl-app-sensorial-video>**
+**The project page is <https://github.com/TeleMidia/sensorial-effects-video>**
 
 ## paper
 
@@ -41,9 +41,9 @@ note = {00000}
 
 ## preview images
 
-![](https://github.com/alanlivio/ncl-app-sensorial-video/raw/master/docs/overview1.png)
+![](https://github.com/TeleMidia/sensorial-effects-video/raw/master/docs/overview1.png)
 
-![](https://github.com/alanlivio/ncl-app-sensorial-video/raw/master/docs/overview2.png)
+![](https://github.com/TeleMidia/sensorial-effects-video/raw/master/docs/overview2.png)
 
 ## preview video
 
