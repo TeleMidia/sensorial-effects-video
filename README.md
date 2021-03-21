@@ -1,7 +1,6 @@
 # Sensorial Effects Video
 
 ## NCL application 
-------------------
 
 The NCL application that presents a video using atuators to enable sensorial
 effects.  
@@ -39,7 +38,6 @@ Some review images and video
 
 
 ## Unity 360-degree application
--------------------------------
 
 The NCL application was upgraded to a Unity 360-degree version.  
 An paper was published in [MMSP 2019](https://ieeexplore.ieee.org/document/8901743).
