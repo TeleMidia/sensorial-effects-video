@@ -2,7 +2,6 @@
 
 ## NCL application 
 ------------------
-![](http://www.ncl.org.br/sites/ncl.org.br/files/newsflash_logo.png)
 
 The NCL application that presents a video using atuators to enable sensorial
 effects.  
@@ -52,7 +51,8 @@ An paper was published in [MMSP 2019](https://ieeexplore.ieee.org/document/89017
 	eventtitle = {2019 {IEEE} 21st International Workshop on Multimedia Signal Processing ({MMSP})},
 	pages = {1--6},
 	booktitle = {2019 {IEEE} 21st International Workshop on Multimedia Signal Processing ({MMSP})},
-	author = {Guedes, Álan L. V. and de A. Azevedo, Roberto G. and Frossard, Pascal and Colcher, Sérgio and Junqueira Barbosa, Simone Diniz},
+	author = {Guedes, Álan L. V. and de A. Azevedo, Roberto G. and Frossard, \
+	Pascal and Colcher, Sérgio and Junqueira Barbosa, Simone Diniz},
 	date = {2019},
 	note = {{ISSN}: 2163-3517},
 }
@@ -60,7 +60,6 @@ An paper was published in [MMSP 2019](https://ieeexplore.ieee.org/document/89017
 
 ## media credits
 
-- <http://www.freepik.com>
 - <https://www.youtube.com/watch?v=x_7tsRrgA2Q>
 - <https://www.youtube.com/watch?v=U8AzaciQrcs>
 - <https://www.youtube.com/watch?v=sHiwOWZPcaA>
